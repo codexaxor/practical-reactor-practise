@@ -129,7 +129,7 @@ public class c1_Introduction extends IntroductionBase {
 
         serviceResult
                 .doOnNext(companyList::add)
-        //todo: add an operator here, don't use any blocking operator!
+                .subscribe()
         ;
 
         Thread.sleep(1000); //bonus: can you explain why this line is needed?
