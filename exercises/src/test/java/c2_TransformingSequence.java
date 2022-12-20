@@ -131,7 +131,7 @@ public class c2_TransformingSequence extends TransformingSequenceBase {
     @Test
     public void sequence_starts_with_zero() {
         Flux<Integer> result = numerical_service()
-                //todo: change this line only
+                .startWith(0)
                 ;
 
         StepVerifier.create(result)
