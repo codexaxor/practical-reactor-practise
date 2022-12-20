@@ -27,7 +27,7 @@ public class c3_FilteringSequence extends FilteringSequenceBase {
     @Test
     public void girls_are_made_of_sugar_and_spice() {
         Flux<String> shortListed = popular_girl_names_service()
-                //todo: change this line only
+                .filter(f->f.length()<5)
                 ;
 
         StepVerifier.create(shortListed)
