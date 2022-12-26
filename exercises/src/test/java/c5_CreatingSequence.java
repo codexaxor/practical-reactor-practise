@@ -222,7 +222,7 @@ public class c5_CreatingSequence {
      */
     @Test
     public void range() {
-        Flux<Integer> range = Flux.range(-5,11);
+        Flux<Integer> range = Flux.range(-5, 11);
 
         System.out.println("Range: ");
         StepVerifier.create(range.doOnNext(System.out::println))
@@ -237,7 +237,8 @@ public class c5_CreatingSequence {
     @Test
     public void repeat() {
         AtomicInteger counter = new AtomicInteger(0);
-        Flux<Integer> repeated = null; //todo: change this line
+        Flux<Integer> repeated = Mono.fromCallable(counter::incrementAndGet)
+                .repeat(9);
 
         System.out.println("Repeat: ");
         StepVerifier.create(repeated.doOnNext(System.out::println))
