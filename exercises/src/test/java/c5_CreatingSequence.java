@@ -99,7 +99,7 @@ public class c5_CreatingSequence {
             System.out.println("You are incrementing a counter via Future!");
             return futureCounter.incrementAndGet();
         });
-        Mono<Integer> futureCounterMono = null; //todo: change this line only
+        Mono<Integer> futureCounterMono = Mono.fromFuture(completableFuture);
 
         StepVerifier.create(futureCounterMono)
                 .expectNext(1)
