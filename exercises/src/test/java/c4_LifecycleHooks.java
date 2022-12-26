@@ -110,8 +110,7 @@ public class c4_LifecycleHooks extends LifecycleHooksBase {
         AtomicBoolean canceled = new AtomicBoolean(false);
 
         Flux<Integer> temperatureFlux = room_temperature_service()
-                //todo: change this line only
-                ;
+                .doOnCancel(() -> canceled.set(true));
 
         StepVerifier.create(temperatureFlux.take(0))
                 .expectNextCount(0)
