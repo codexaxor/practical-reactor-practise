@@ -74,8 +74,7 @@ public class c4_LifecycleHooks extends LifecycleHooksBase {
 
         Flux<Integer> temperatureFlux = room_temperature_service()
                 .doOnNext(c -> counter.getAndIncrement())
-                .doOnNext(System.out::println)
-                ;
+                .doOnNext(System.out::println);
 
         StepVerifier.create(temperatureFlux)
                 .expectNextCount(20)
@@ -93,8 +92,7 @@ public class c4_LifecycleHooks extends LifecycleHooksBase {
         AtomicBoolean completed = new AtomicBoolean(false);
 
         Flux<Integer> temperatureFlux = room_temperature_service()
-                //todo: change this line only
-                ;
+                .doOnComplete(() -> completed.set(true));
 
         StepVerifier.create(temperatureFlux.skip(20))
                 .expectNextCount(0)
