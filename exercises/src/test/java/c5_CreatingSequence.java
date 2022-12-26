@@ -222,7 +222,7 @@ public class c5_CreatingSequence {
      */
     @Test
     public void range() {
-        Flux<Integer> range = null; //todo: change this line only
+        Flux<Integer> range = Flux.range(-5,11);
 
         System.out.println("Range: ");
         StepVerifier.create(range.doOnNext(System.out::println))
