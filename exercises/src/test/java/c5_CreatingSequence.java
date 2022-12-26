@@ -140,7 +140,7 @@ public class c5_CreatingSequence {
      */
     @Test
     public void seen() {
-        Mono<String> seen = null; //todo: change this line only
+        Mono<String> seen = Mono.never();
 
         StepVerifier.create(seen.timeout(Duration.ofSeconds(5)))
                 .expectSubscription()
